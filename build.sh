@@ -301,7 +301,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 <plist version="1.0"><dict>
   <key>CFBundleDevelopmentRegion</key><string>en</string>
   <key>CFBundleExecutable</key><string>Today</string>
-  <key>CFBundleIdentifier</key><string>dev.lamp.dev.pensive-curie-69cf17.app.today</string>
+  <key>CFBundleIdentifier</key><string>dev.lamp.dev.app.today</string>
   <key>CFBundleName</key><string>Today</string>
   <key>CFBundleDisplayName</key><string>Today</string>
   <key>CFBundlePackageType</key><string>APPL</string>
@@ -325,7 +325,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>NSAppleMusicUsageDescription</key><string>Today plays music from your library.</string>
 </dict></plist>
 PLIST
-intents Today "$APP" "dev.lamp.dev.pensive-curie-69cf17.app.today" Sources
+intents Today "$APP" "dev.lamp.dev.app.today" Sources
 WIDGET="$APP/Contents/PlugIns/TodayWidget.appex"
 mkdir -p "$WIDGET/Contents/MacOS"
 cp "$(dirname "$BIN")/TodayWidget" "$WIDGET/Contents/MacOS/TodayWidget"
@@ -335,7 +335,7 @@ cat > "$WIDGET/Contents/Info.plist" <<PLIST
 <plist version="1.0"><dict>
   <key>CFBundleDevelopmentRegion</key><string>en</string>
   <key>CFBundleExecutable</key><string>TodayWidget</string>
-  <key>CFBundleIdentifier</key><string>dev.lamp.dev.pensive-curie-69cf17.app.today.widget</string>
+  <key>CFBundleIdentifier</key><string>dev.lamp.dev.app.today.widget</string>
   <key>CFBundleName</key><string>Today</string>
   <key>CFBundleDisplayName</key><string>Today</string>
   <key>CFBundlePackageType</key><string>XPC!</string>
@@ -355,7 +355,7 @@ cat > "build/TodayWidget.entitlements" <<PLIST
   <key>com.apple.security.network.client</key><true/>
 </dict></plist>
 PLIST
-intents TodayWidget "$WIDGET" "dev.lamp.dev.pensive-curie-69cf17.app.today.widget" Widget
+intents TodayWidget "$WIDGET" "dev.lamp.dev.app.today.widget" Widget
 codesign --force -s - --entitlements "build/TodayWidget.entitlements" "$WIDGET"
 codesign --force -s - "$APP"
 echo "Built $APP"
